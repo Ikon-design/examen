@@ -50,7 +50,7 @@ def production(wheels, motors, execution_time):
   else:
     oil(execution_time)
 
-def oil(execution_time):
+def oil():
   if t.quantity > 30:
     t.quantity += p10.production
     print("Add 10 liters of oil")
@@ -58,7 +58,12 @@ def oil(execution_time):
     t.quantity += p20.production
     print("Add 20 liters of oil")
   
-
+def wait(period, execution_time):
+  print("Waiting for ", period, " seconds")
+  while execution_time < period:
+    execution_time += 1
+    print("Execution time: ", execution_time)
+    oil(execution_time)
 
 while execution_time < 15:
   execution_time += 1
